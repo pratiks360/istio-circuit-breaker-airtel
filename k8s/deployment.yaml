@@ -13,11 +13,17 @@ spec:
       labels:
         app: python-cb
         version: v1
+      annotations:
+        sidecar.istio.io/inject: 'true'
     spec:
       serviceAccountName: python-cb
       containers:
-      - image: docker.io/pratiks360/istio-circuit-breaker:latest
+      - image: docker.io/pratiks360/istio-circuit-breaker:1.0.0
         imagePullPolicy: IfNotPresent
         name: python-cb
         ports:
         - containerPort: 9000
+
+
+
+

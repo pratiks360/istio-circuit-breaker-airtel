@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: python-cb
+  namespace: new-cb
+spec:
+  host: python-cb
+  trafficPolicy:
+    outlierDetection:
+      consecutive5xxErrors: 3
+      interval: 1s
+      baseEjectionTime: 3m
+      maxEjectionPercent: 100

@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: python-cb-retry
+  namespace: new-cb
+spec:
+  gateways:
+    - cb-gateway
+  hosts:
+    - '*'
+  http:
+    - match:
+        - uri:
+            prefix: /circuit
+      route:
+        - destination:
+            host: python-cb
+            port:
+              number: 9000
+            subset: v1
+          weight: 100
+      retries:
+        attempts: 3
+        perTryTimeout: 20ms
+        retryOn: '5xx'

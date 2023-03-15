@@ -23,7 +23,7 @@ def return_good():
 @app.route("/circuit/internal", methods=['GET'])
 @cross_origin()
 def return_internal_error():
-    return "error", 500
+    return "error :: internal server", 500
 
 
 @app.route("/circuit/gateway", methods=['GET'])
