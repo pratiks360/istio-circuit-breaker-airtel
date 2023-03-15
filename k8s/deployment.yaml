@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-cb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-cb
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: python-cb
+        version: v1
+    spec:
+      serviceAccountName: python-cb
+      containers:
+      - image: docker.io/pratiks360/istio-circuit-breaker:latest
+        imagePullPolicy: IfNotPresent
+        name: python-cb
+        ports:
+        - containerPort: 9000

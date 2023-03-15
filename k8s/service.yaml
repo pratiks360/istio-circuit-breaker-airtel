@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-cb
+  labels:
+    app: python-cb
+    service: python-cb
+spec:
+  ports:
+  - name: http
+    port: 9000
+    targetPort: 9000
+  selector:
+    app: python-cb
