@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: python-cb
+spec:
+  gateways:
+    - cb-gateway
+  hosts:
+    - '*'
+  http:
+    - match:
+        - uri:
+            prefix: /circuit
+      route:
+        - destination:
+            host: python-cb
+            port:
+              number: 9000
+            subset: v1
+          weight: 100
+      timeout: 5s
+
+
+# http://emitra-cb-cb-gateway-525eca1d5089dbdc-istio-system.apps.emitraocs.sdc.raj.gov.in/circuit/delay?time=2

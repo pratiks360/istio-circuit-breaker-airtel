@@ -2,7 +2,6 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: python-cb
-  namespace: new-cb
 spec:
   gateways:
     - cb-gateway
@@ -19,4 +18,10 @@ spec:
               number: 9000
             subset: v1
           weight: 100
-      timeout: 5s
+      retries:
+        attempts: 5
+        perTryTimeout: 20ms
+        retryOn: '5xx'
+
+
+#http://emitra-cb-cb-gateway-525eca1d5089dbdc-istio-system.apps.emitraocs.sdc.raj.gov.in/circuit/internal

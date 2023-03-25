@@ -49,4 +49,4 @@ spec:
           name: grpc-ping
 
 
-#oc exec fortio-deploy-7dcd84c469-8h766 -c fortio -- /usr/bin/fortio curl  http://python-cb.new-cb.svc.cluster.local:9000/circuit
+#oc exec fortio-deploy-7dcd84c469-r842s -c fortio -- /usr/bin/fortio curl  http://python-cb.emitra-cb.svc.cluster.local:9000/circuit

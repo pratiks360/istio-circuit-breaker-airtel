@@ -23,7 +23,3 @@ spec:
         name: python-cb
         ports:
         - containerPort: 9000
-
-
-
-
