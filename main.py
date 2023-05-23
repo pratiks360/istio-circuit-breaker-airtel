@@ -11,7 +11,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route("/circuit", methods=['GET'])
 @cross_origin()
 def returnapp():
-    return "App is UP!"
+    return "App is UP!!"
 
 
 @app.route("/circuit/good", methods=['GET'])
